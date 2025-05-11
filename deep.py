@@ -8,8 +8,6 @@ from plotly.subplots import make_subplots
 # Load data
 @st.cache_data
 def load_data():
-    #df = pd.read_excel("Merged_Dept_Data.xlsx", sheet_name="Sheet1")
-    #df = pd.read_excel("C:\\Users\\abc\\Desktop\\Acadia BI Intern Assessment/Merged_Dept_Data.xlsx")
     df = pd.read_excel("https://github.com/GayasuddinMohd/BI-Intern-/blob/main/Merged_Dept_Data.xlsx")
     #https://github.com/GayasuddinMohd/BI-Intern-/blob/main/Merged_Dept_Data.xlsx
     return df
