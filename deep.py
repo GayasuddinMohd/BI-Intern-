@@ -4,14 +4,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_excel("https://github.com/GayasuddinMohd/BI-Intern-/blob/main/Merged_Dept_Data.xlsx")
-    #https://github.com/GayasuddinMohd/BI-Intern-/blob/main/Merged_Dept_Data.xlsx
+    url = "https://raw.githubusercontent.com/GayasuddinMohd/BI-Intern-/main/Merged_Dept_Data.xlsx"
+    df = pd.read_excel(url, engine='openpyxl')  # Fix: use raw link and specify engine
     return df
-
 
 df = load_data()
 
@@ -45,7 +43,7 @@ filtered_df = df[
     (df['Year'] == selected_year) &
     (df['Department Description'].isin(selected_depts)) &
     (df['Segment Description'].isin(selected_segments))
-    ]
+]
 
 # KPI cards
 col1, col2, col3, col4 = st.columns(4)
